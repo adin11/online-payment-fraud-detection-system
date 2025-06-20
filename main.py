@@ -2,13 +2,12 @@ import streamlit as st
 import pandas as pd
 import joblib
 
-
 @st.cache_resource
 def load_model():
     model_data = joblib.load('fraud_detection_model.pkl')  # Update with your file path
     return model_data
 
-st.set_page_config(page_icon='⚡',page_title='Fraud Checker')
+st.set_page_config(page_icon='🛡️',page_title='Fraud Shield')
 
 model_data = load_model()
 loaded_model = model_data['model']
@@ -24,12 +23,13 @@ transaction_mapping = {
     "DEBIT": 5
 }
 
-st.title("Online Payment Fraud Detection System")
-st.subheader("Enter the transaction details below:")
+st.title("🛡️Fraud Shield:")
+st.subheader(" Your Online Payment Fraud Detection System")
+st.info("Enter the transaction details below to get accurate probability of a transaction being Fradulent ")
 
-with st.expander("Description"):
-    st.info("""
-**Note**: This app uses a machine learning model to predict the likelihood of a transaction being fraudulent based on the provided inputs. Always exercise caution when using predictions for decision-making.
+with st.expander("🚨ALERT"):
+    st.warning("""
+Fraud risk scores are estimates only. Cross-check suspicious activity before taking action. No tool is foolproof—this fraud detector may miss threats or flag legitimate transactions as Fraudulent.
 """)
 
 transaction_type = st.selectbox(
@@ -74,7 +74,7 @@ if st.button("Check"):
         st.write("Input Data Sent to Model: 📤")
         st.write(input_data)
         
-        y_pred_prob = loaded_model.predict_proba(input_data)[0][1]  # Probability of fraud
+        y_pred_prob = loaded_model.predict_proba(input_data)[0][1] # Probability of fraud
 
         loaded_threshold = 0.5
         y_pred_custom = (y_pred_prob >= loaded_threshold).astype(float)
@@ -84,3 +84,62 @@ if st.button("Check"):
         st.subheader("Prediction Results")
         st.write(f"Probability of fraud: {y_pred_prob:.2f}") 
         st.write(f"Fraud Status: {predicted_label}")
+
+
+# Hamburger Icon
+st.markdown("""
+<style>
+/* Target the header button using its data-testid */
+[data-testid="baseButton-headerNoPadding"] {
+    background: none; /* Remove default background */
+    border: none; /* Remove border */
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+/* Replace the SVG with a hamburger icon */
+[data-testid="baseButton-headerNoPadding"] svg {
+    display: none; /* Hide the default SVG */
+}
+
+[data-testid="baseButton-headerNoPadding"]::before {
+    content: '\\2630'; /* Unicode for hamburger icon */
+    font-size: 24px; /* Adjust icon size */
+    color: currentColor; /* Inherit color for consistency */
+    display: block;
+}
+</style>
+""", unsafe_allow_html=True)
+
+
+# Footer
+st.markdown("---")
+st.markdown("""
+<div style='text-align: center;'>
+    <h4>A Project by ~ Adin Raja ✌️</h4>
+    <p>
+        <a href='https://github.com/adin11' target='_blank'>GitHub</a> | 
+        <a href='https://www.linkedin.com/in/adin-raja-492a78194/' target='_blank'>LinkedIn</a> | 
+        <a href='mailto:adinraja78@gmail.com'>Email</a>
+    </p>
+    <small>© 2025 Adin Raja. All rights reserved.</small>
+</div>
+""", unsafe_allow_html=True)
+
+# Optional Sidebar for About Section
+with st.sidebar:
+    
+    with st.sidebar:
+     st.markdown("### About This App") 
+
+    st.info(
+        """
+        The app helps banks, digital wallets, or payment platforms to automatically flag suspicious transactions, helping to prevent financial loss, alert fraud detection teams.\n
+        **Made by ~ Adin Raja**
+        """ 
+    )
+    st.markdown("### 📬 Contact") 
+    st.write("""
+    - ✉️ Email: [adinraja78@gmail.com](mailto:your_email@example.com)
+    - 💼 [LinkedIn](https://www.linkedin.com/in/adin-raja-492a78194/)
+    - 🖥️ [GitHub](https://github.com/adin11)
+    """)
