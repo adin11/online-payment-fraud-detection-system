@@ -1,6 +1,4 @@
-primaryColor = "#6C757D"  # Cool Grey (for buttons/actions)  
-backgroundColor = "#F8F9FA"  # Light Grey-White (main background)  
-secondaryBackgroundColor = "#E9ECEF"  # Soft Grey (cards/sections)  
-textColor = "#212529"  # Almost Black (primary text)  
-accentColor = "#FF6B6B"  # Coral Red (for alerts/important elements)  
-borderColor = "#DEE2E6"  # Light Grey Border  
+[theme]
+primaryColor = "#6C757D"
+backgroundColor = "#E9ECEF"
+textColor = "#212529"
