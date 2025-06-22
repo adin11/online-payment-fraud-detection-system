@@ -1,10 +1,12 @@
 import streamlit as st
 import pandas as pd
 import joblib
+import streamlit as st
+from datetime import time, datetime
 
 @st.cache_resource
 def load_model():
-    model_data = joblib.load('fraud_detection_model.pkl')  # Update with your file path
+    model_data = joblib.load('fraud_detection_model.pkl')
     return model_data
 
 st.set_page_config(page_icon='🛡️',page_title='Fraud Shield')
@@ -23,7 +25,7 @@ transaction_mapping = {
     "DEBIT": 5
 }
 
-st.title("🛡️Fraud Shield:")
+st.markdown("<h1 style='white-space: nowrap;'>🛡️ Fraud Shield</h1>", unsafe_allow_html=True)
 st.subheader(" Your Online Payment Fraud Detection System")
 st.info("Enter the transaction details below to get accurate probability of a transaction being Fradulent ")
 
@@ -31,6 +33,8 @@ with st.expander("🚨ALERT"):
     st.warning("""
 Fraud risk scores are estimates only. Cross-check suspicious activity before taking action. No tool is foolproof—this fraud detector may miss threats or flag legitimate transactions as Fraudulent.
 """)
+    
+hour = st.selectbox("Transaction Time (24 hour format)", list(range(0, 24)),help='Enter the transaction time in hours')
 
 transaction_type = st.selectbox(
     "Transaction Type",
@@ -41,22 +45,22 @@ transaction_type = st.selectbox(
 amount = st.number_input(
     "Transaction Amount",
     min_value=0,
-    step=1,
+    step=1000,
     help="Enter the transaction amount"
 )
 
 old_balance = st.number_input(
     "Old Balance (Origin)",
     min_value=0,
-    step=1,
-    help="Enter the account balance before the transaction"
+    step=1000,
+    help="Account balance of the sender before the transaction"
 )
 
 new_balance = st.number_input(
     "New Balance (Origin)",
     min_value=0,
-    step=1,
-    help="Enter the account balance after the transaction"
+    step=1000,
+    help="Account balance of the sender after the transaction"
 )
 
 if st.button("Check"):
@@ -67,7 +71,7 @@ if st.button("Check"):
         # Prepare input data
         transaction_type_encoded = transaction_mapping[transaction_type]
         input_data = pd.DataFrame(
-            [[transaction_type_encoded, amount, old_balance, new_balance]],
+            [[hour,transaction_type_encoded, amount, old_balance, new_balance]],
             columns=loaded_features
         )
        
@@ -133,7 +137,7 @@ with st.sidebar:
 
     st.info(
         """
-        The app helps banks, digital wallets, or payment platforms to automatically flag suspicious transactions, helping to prevent financial loss, alert fraud detection teams.\n
+        This app can help banks, digital wallets or payment platforms to automatically flag suspicious transactions, helping to prevent financial loss, alert fraud detection teams.\n
         **Made by ~ Adin Raja**
         """ 
     )
