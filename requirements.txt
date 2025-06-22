@@ -39,7 +39,6 @@ gitdb==4.0.12
 GitPython==3.1.44
 greenlet==3.2.3
 h11==0.14.0
-HeapDict @ file:///Users/ktietz/demo/mc3/conda-bld/heapdict_1630598515714/work
 holoviews @ file:///C:/b/abs_fa7afixkhc/croot/holoviews_1693378101313/work
 html5lib==1.1
 httpcore==1.0.5
