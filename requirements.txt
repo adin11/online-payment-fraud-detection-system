@@ -5,5 +5,5 @@ pandas
 joblib 
 streamlit 
 setuptools 
-scikit-learn
+scikit-learn==1.3.2
 
