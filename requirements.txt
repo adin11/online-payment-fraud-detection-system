@@ -1,6 +1,5 @@
 wheel
 setuptools
-cython
 pandas
 joblib 
 streamlit 
