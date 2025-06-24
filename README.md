@@ -18,21 +18,5 @@ The **Online Fraud Detection App** is a machine learning-powered system designed
 3. The model predicts whether the transaction is **fraudulent** or **legitimate**.
 4. The result is displayed instantly on the web interface.
 
-## 🖼️ Screenshots
-
-*(You can add images here using the following format)*  
-<<<<<<< HEAD
-![App Screenshot](Screenshot 2025-02-03 115735.png)
-![App Screenshot](Screenshot 2025-02-04 082434.png)
-
-## 📜 License
-
-This project is licensed under the **MIT License**. You are free to use, modify, and distribute it.
-
----
-=======
-![App Screenshot](https://github.com/adin11/online-payment-fraud-detection/blob/main/Screenshot%202025-02-04%20082434.png?raw=true)
-![App Screenshot](https://github.com/adin11/online-payment-fraud-detection/blob/main/Screenshot%202025-02-03%20115735.png?raw=true)
->>>>>>> cbdb3f79c65e75763bb69f1a78a839ed5b7967dd
 
 🌟 If you find this project useful, consider giving it a ⭐ on GitHub!
