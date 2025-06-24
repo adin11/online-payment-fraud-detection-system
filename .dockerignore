@@ -1,7 +1,7 @@
-.git/
 __pycache__/
 .venv/
-.envrc
+.ipynb_checkpoints/
 *.csv
 *.log
-.ipynb_checkpoints/
+*.zip
+*.tar.gz
