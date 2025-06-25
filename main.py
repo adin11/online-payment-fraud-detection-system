@@ -1,6 +1,8 @@
 import streamlit as st
 import pandas as pd
 import joblib
+import streamlit as st
+from datetime import time, datetime
 
 @st.cache_resource
 def load_model():
@@ -62,29 +64,55 @@ new_balance = st.number_input(
 )
 
 if st.button("Check"):
-    # Validate input values
+    # Validate positive amounts
     if amount <= 0 or old_balance < 0 or new_balance < 0:
         st.error("Please enter valid positive values for all amounts.")
+
+    # Conditional logic based on transaction type
+    elif transaction_type == "TRANSFER" or transaction_type == "CASH_OUT":
+        if amount > old_balance:
+            st.error(f"Invalid Transaction: You cannot {transaction_type.lower()} more than your old balance.")
+        elif new_balance > old_balance:
+            st.error("Invalid Transaction: New balance should not be greater than old balance for a withdrawal.")
+        else:
+            valid_input = True
+
+    elif transaction_type == "CASH_IN" or transaction_type == "DEPOSIT":
+        if new_balance < old_balance:
+            st.error("Invalid Transaction: New balance should be greater than old balance for a deposit.")
+        else:
+            valid_input = True
+
+    elif transaction_type == "PAYMENT" or transaction_type == "DEBIT":
+        if amount > old_balance:
+            st.error("Invalid Transaction: Amount cannot exceed old balance.")
+        elif new_balance > old_balance:
+            st.error("Invalid Transaction: New balance should not increase for a payment.")
+        else:
+            valid_input = True
+
     else:
-        # Prepare input data
+        valid_input = True  # fallback if unknown type (optional)
+
+    # If all checks passed, make prediction
+    if 'valid_input' in locals() and valid_input:
         transaction_type_encoded = transaction_mapping[transaction_type]
         input_data = pd.DataFrame(
-            [[hour,transaction_type_encoded, amount, old_balance, new_balance]],
+            [[hour, transaction_type_encoded, amount, old_balance, new_balance]],
             columns=loaded_features
         )
-       
+
         st.write("Input Data Sent to Model: 📤")
         st.write(input_data)
-        
-        y_pred_prob = loaded_model.predict_proba(input_data)[0][1] # Probability of fraud
 
-        loaded_threshold = 0.5
+        y_pred_prob = loaded_model.predict_proba(input_data)[0][1]  # Probability of fraud
+
+        loaded_threshold = 0.3
         y_pred_custom = (y_pred_prob >= loaded_threshold).astype(float)
-
         predicted_label = label_mapping[y_pred_custom]
 
         st.subheader("Prediction Results")
-        st.write(f"Probability of fraud: {y_pred_prob:.2f}") 
+        st.write(f"Probability of fraud: {y_pred_prob:.2f}")
         st.write(f"Fraud Status: {predicted_label}")
 
 
