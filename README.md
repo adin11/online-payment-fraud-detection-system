@@ -4,6 +4,9 @@
 
 The **Online Fraud Detection App** is a machine learning-powered system designed to identify fraudulent transactions in real time. Built with **Streamlit**, it provides an interactive user interface where users can input transaction details and receive instant fraud predictions. The model analyzes transaction patterns and classifies them as **fraudulent** or **legitimate** based on trained data. This project aims to enhance online security and prevent financial fraud effectively.
 
+## Demo
+https://github.com/user-attachments/assets/4a95d80f-96d1-49ca-a806-3364ac437dc3
+
 ## 📂 Repository Contents
 
 - **`streamlit app.py`** - The main file to run the Streamlit web application.
