@@ -1,29 +1,29 @@
-# Fraud Shield - Online Fraud Detection System:
+# Fraud Shield - Online Payment Fraud Detection System:
 **Live App Link - [Fraud Shield](https://fraudshield.fly.dev)**
 
 ## Problem Statment
 
-Online payment fraud is increasing rapidly in e-commerce/banking etc, causing financial losses and security risks for users and businesses. Traditional rule-based detection methods fail to adapt to evolving fraud patterns, creating the need for a smarter, real-time detection system.
+Online payment fraud's are increasing rapidly, causing financial losses and security risks for users and businesses. Traditional rule-based detection methods fail to adapt to evolving fraud patterns, creating the need for a smarter, real-time detection system.
 
 ## 🚀 Project Overview
 
-The **Online Fraud Detection App** is a real time machine learning-powered solution designed to identify fraudulent transactions. Built with **Streamlit**, it provides an interactive user interface where users can input live transaction details and receive instant fraud predictions. The model analyzes transaction patterns and classifies them as **fraudulent** or **legitimate** based on trained data. This project aims to enhance online security and prevent financial fraud effectively.
+The **Online Fraud Detection App** is a real time machine learning-powered solution designed to identify fraudulent transactions. This app can help banks, digital wallets or payment platforms to automatically flag suspicious transactions, helping to prevent financial loss. The model analyzes transaction patterns and classifies them as **fraudulent** or **legitimate** based on trained data.
 
-## Demo
+## Demo video
 https://github.com/user-attachments/assets/4a95d80f-96d1-49ca-a806-3364ac437dc3
 
 ## ⚙️Technical Details
 
 1. Programming Language: Python
-2. Libraries Used: pandas, numpy, matplotlib, seaborn, scikit-learn, XGBoost, imbalanced-learn
+2. Libraries Used: pandas, numpy, matplotlib, seaborn, scikit-learn, XGBoost, RandomUnderSampler, SMOTE
 3. Techniques Applied:
-    - Exploratory Data Analysis (EDA) with visualization
+    - Exploratory Data Analysis (EDA) for identifying fraud patterns
     - Handling class imbalance using SMOTE & RandomUnderSampler
-    - Feature engineering and label encoding
+    - Feature engineering and manual label encoding
     - Model training with Logistic Regression, Decision Tree, Random Forest, XGBoost
-    - Final model: Random Forest Classifier (Recall: 99%, Precision: 94%)
-    - Model evaluation using Confusion Matrix, ROC-AUC, Classification Report
-    - Model Export: Saved with Joblib for deployment
+    - Final model: Random Forest Classifier — achieved 99% recall and 94% precision, with a reduced decision threshold to   capture more fraudulent transactions
+    - Model evaluation using, ROC-AUC(0.99), Classification Report
+    - Model Export: Saved with the model and its artifacts using Joblib library
 4. Deployment: Deployed the app using **DOCKER**
 
 ## 📊 How It Works
