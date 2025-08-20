@@ -12,12 +12,19 @@ The **Online Fraud Detection App** is a real time machine learning-powered solut
 ## Demo
 https://github.com/user-attachments/assets/4a95d80f-96d1-49ca-a806-3364ac437dc3
 
-## 📂 Repository Contents
+## ⚙️Technical Details
 
-- **`streamlit app.py`** - The main file to run the Streamlit web application.
-- **`model.pkl`** - Pickle file containing the trained machine learning model.
-- **`fraud_detection.ipynb`** - Jupyter Notebook showcasing the model training process.
-- **`requirements.txt`** - List of required Python dependencies.
+1. Programming Language: Python
+2. Libraries Used: pandas, numpy, matplotlib, seaborn, scikit-learn, XGBoost, imbalanced-learn
+3. Techniques Applied:
+    Exploratory Data Analysis (EDA) with visualization
+    Handling class imbalance using SMOTE & RandomUnderSampler
+    Feature engineering and label encoding
+    Model training with Logistic Regression, Decision Tree, Random Forest, XGBoost
+    Final model: Random Forest Classifier (Recall: 99%, Precision: 94%)
+    Model evaluation using Confusion Matrix, ROC-AUC, Classification Report
+    Model Export: Saved with Joblib for deployment
+4. Deployment: Deployed the app using **DOCKER**
 
 ## 📊 How It Works
 
@@ -26,4 +33,10 @@ https://github.com/user-attachments/assets/4a95d80f-96d1-49ca-a806-3364ac437dc3
 3. The model predicts whether the transaction is **fraudulent** or **legitimate**.
 4. The result is displayed instantly on the web interface.
 
+## 📂 Repository Contents
+
+- **`streamlit app.py`** - The main file to run the Streamlit web application.
+- **`model.pkl`** - Pickle file containing the trained machine learning model.
+- **`fraud_detection.ipynb`** - Jupyter Notebook showcasing the model training process.
+- **`requirements.txt`** - List of required Python dependencies.
 
