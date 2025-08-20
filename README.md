@@ -17,13 +17,13 @@ https://github.com/user-attachments/assets/4a95d80f-96d1-49ca-a806-3364ac437dc3
 1. Programming Language: Python
 2. Libraries Used: pandas, numpy, matplotlib, seaborn, scikit-learn, XGBoost, imbalanced-learn
 3. Techniques Applied:
-    Exploratory Data Analysis (EDA) with visualization
-    Handling class imbalance using SMOTE & RandomUnderSampler
-    Feature engineering and label encoding
-    Model training with Logistic Regression, Decision Tree, Random Forest, XGBoost
-    Final model: Random Forest Classifier (Recall: 99%, Precision: 94%)
-    Model evaluation using Confusion Matrix, ROC-AUC, Classification Report
-    Model Export: Saved with Joblib for deployment
+    - Exploratory Data Analysis (EDA) with visualization
+    - Handling class imbalance using SMOTE & RandomUnderSampler
+    - Feature engineering and label encoding
+    - Model training with Logistic Regression, Decision Tree, Random Forest, XGBoost
+    - Final model: Random Forest Classifier (Recall: 99%, Precision: 94%)
+    - Model evaluation using Confusion Matrix, ROC-AUC, Classification Report
+    - Model Export: Saved with Joblib for deployment
 4. Deployment: Deployed the app using **DOCKER**
 
 ## 📊 How It Works
