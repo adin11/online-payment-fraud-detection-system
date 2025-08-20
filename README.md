@@ -7,7 +7,7 @@ Online payment fraud's are increasing rapidly, causing financial losses and secu
 
 ## 🚀 Project Overview
 
-Our app **FraudShield** is a real time machine learning-powered solution designed to identify fraudulent transactions. This app can help banks, digital wallets or payment platforms to automatically flag suspicious transactions, helping to prevent financial loss. The model analyzes transaction patterns and classifies them as **fraudulent** or **legitimate** based on trained data.
+Our app **FraudShield** is a real time machine learning-powered solution designed to identify fraudulent transactions. This app can help banks, digital wallets or payment platforms to automatically flag suspicious transactions, helping to prevent financial loss. It takes the user inputs passes them to the trained model and returns the probability of fraud and fraud status to the user.
 
 ## Demo video
 https://github.com/user-attachments/assets/4a95d80f-96d1-49ca-a806-3364ac437dc3
