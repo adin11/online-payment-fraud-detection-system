@@ -18,7 +18,6 @@ https://github.com/user-attachments/assets/4a95d80f-96d1-49ca-a806-3364ac437dc3
 2. Libraries Used: pandas, numpy, matplotlib, seaborn, scikit-learn, XGBoost, RandomUnderSampler, SMOTE
 3. Techniques Applied:
     - Exploratory Data Analysis (EDA) for identifying fraud patterns
-    - Handling class imbalance using SMOTE & RandomUnderSampler
     - Feature engineering and manual label encoding
     - Model training with Logistic Regression, Decision Tree, Random Forest, XGBoost
     - Final model: Random Forest Classifier — achieved 99% recall and 94% precision, with a reduced decision threshold to   capture more fraudulent transactions
@@ -35,8 +34,9 @@ https://github.com/user-attachments/assets/4a95d80f-96d1-49ca-a806-3364ac437dc3
 
 ## 📂 Repository Contents
 
-- **`streamlit app.py`** - The main file to run the Streamlit web application.
-- **`model.pkl`** - Pickle file containing the trained machine learning model.
-- **`fraud_detection.ipynb`** - Jupyter Notebook showcasing the model training process.
+- **`main.py`** - The main file to run the Streamlit web application.
+- **`fraud_detection_model.pkl`** - Pickle file containing the trained machine learning model.
+- **`model.ipynb`** - Jupyter Notebook showcasing the model training process.
 - **`requirements.txt`** - List of required Python dependencies.
+- **`Dockerfile`** - Docker file used fly.io for deployment
 
